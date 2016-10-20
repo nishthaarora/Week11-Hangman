@@ -1,0 +1,23 @@
+{
+  "name": "hangman_remake",
+  "version": "1.0.0",
+  "description": "remaking hamgman on node",
+  "main": "main.js",
+  "dependencies": {
+    "key-emit": "^0.0.4",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishthaarora/Week11-Hangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishthaarora/Week11-Hangman/issues"
+  },
+  "homepage": "https://github.com/nishthaarora/Week11-Hangman#readme"
+}
