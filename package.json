@@ -1,10 +1,10 @@
 {
-  "name": "hangman_remake",
+  "name": "hangman",
   "version": "1.0.0",
-  "description": "remaking hamgman on node",
+  "description": "2nd hangman game with node",
   "main": "main.js",
   "dependencies": {
-    "key-emit": "^0.0.4",
+    "inquirer": "^1.2.2"
   },
   "devDependencies": {},
   "scripts": {

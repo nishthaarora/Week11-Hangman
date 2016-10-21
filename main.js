@@ -20,11 +20,12 @@ var wrongGuess = [];
 
 
 function toInitialise() {
-
+	chances = 10;
+	wrongGuess = [];
 	CurrentrandomWord();
 	toDisplayDashOrLetter(randomWordSelected);
 	userGuess();
-	var chances = 10;
+
 }
 
 function CurrentrandomWord() {
@@ -90,7 +91,6 @@ function userGuess() {
 					wrongGuess.push(letters.input);
 					console.log('Guesses remaining: ' + chances);
 				} else {
-					// console.log('wrong guesses:' +  '[' + wrongGuess + ',' + ']');
 					console.log('you already guessed that!');
 				}
 			}
@@ -101,9 +101,9 @@ function userGuess() {
 		lose++;
 		console.log('|----------------------------------------------------|');
 		console.log('|you lost this one                                   |');
-		console.log('|The Answer Was: ' + randomWordSelected            +'|');
-		console.log('|' + 'number of games won: ' + win                 +'|');
-		console.log('|' + 'number of games lost: ' + lose               +'|');
+		console.log('|The Answer Was: ' + randomWordSelected + '|');
+		console.log('|' + 'number of games won: ' + win + '|');
+		console.log('|' + 'number of games lost: ' + lose + '|');
 		console.log('|___________________________________________________ |');
 		toInitialise();
 	}
