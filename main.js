@@ -3,7 +3,7 @@ var word = require('./word');
 var game = require('./game');
 var inquirer = require('inquirer');
 
-var options = ['good morning', 'good night'];
+var options = ['lmn', 'opq', 'rst'];
 
 var newGame = new game.Game();
 var newWord = new word.Word();
@@ -16,20 +16,23 @@ var win = 0;
 var lose = 0;
 var chances = 10;
 var wrongGuess = [];
-var gameOver = false;
+
 
 
 function toInitialise() {
 
 	CurrentrandomWord();
 	toDisplayDashOrLetter(randomWordSelected);
-
+	userGuess();
 	var chances = 10;
-	var gameOver = false;
 }
 
 function CurrentrandomWord() {
 	randomWordSelected = newGame.getRandomWord(options);
+	console.log('current random word ', randomWordSelected);
+	var randIndex = options.indexOf(randomWordSelected);
+	var removeChosenWord = options.splice(randIndex, 1);
+	return;
 }
 
 function toDisplayDashOrLetter(randomCurrentWord) {
@@ -66,9 +69,14 @@ function userGuess() {
 				console.log('current word: ' + currentWord);
 				if (currentWord === randomWordSelected) {
 					win++
-					console.log('you won this one');
-					console.log('number of games won: ' + win);
-					console.log('\n************* Next Game ************');
+					console.log('|---------------------------------------------------|');
+					console.log('|you won this one                                   |');
+					console.log('|The Answer Was: ' + randomWordSelected + '|');
+					console.log('|' + 'number of games won: ' + win + '|');
+					console.log('|' + 'number of games lost: ' + lose + '|');
+					console.log('|___________________________________________________|');
+
+					console.log('\n***************    Next Game    *********************');
 					toInitialise();
 					return;
 				}
@@ -80,27 +88,30 @@ function userGuess() {
 				if (wrongGuess.indexOf(letters.input) === -1) {
 					chances--;
 					wrongGuess.push(letters.input);
-
+					console.log('Guesses remaining: ' + chances);
 				} else {
 					// console.log('wrong guesses:' +  '[' + wrongGuess + ',' + ']');
 					console.log('you already guessed that!');
 				}
 			}
-			console.log('Guesses remaining: ' + chances);
 			userGuess();
 		})
 
 	} else {
-		console.log('you lost this game');
 		lose++;
-		console.log('number of games lost:' + lose);
+		console.log('|----------------------------------------------------|');
+		console.log('|you lost this one                                   |');
+		console.log('|The Answer Was: ' + randomWordSelected            +'|');
+		console.log('|' + 'number of games won: ' + win                 +'|');
+		console.log('|' + 'number of games lost: ' + lose               +'|');
+		console.log('|___________________________________________________ |');
 		toInitialise();
 	}
 
 }
 
 
-
-toInitialise();
-
+CurrentrandomWord();
+// toInitialise();
+toDisplayDashOrLetter(randomWordSelected);
 userGuess();
