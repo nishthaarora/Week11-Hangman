@@ -3,7 +3,7 @@ var word = require('./word');
 var game = require('./game');
 var inquirer = require('inquirer');
 
-var options = ['lmn', 'opq', 'rst'];
+var options = ['good morning', 'lord of the rings', 'rst'];
 
 var newGame = new game.Game();
 var newWord = new word.Word();
